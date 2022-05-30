@@ -1,0 +1,22 @@
+[
+  {
+    "name": "writing",
+    "children": [
+      {
+        "name": "Getting Started",
+        "children": [
+          { "name": "Introduction", "url": "/en-us/writing/introduction", "index": 5, "group": "Getting Started" }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "experiments",
+    "children": [
+      {
+        "name": "General",
+        "children": [{ "name": "Code", "url": "/en-us/experiments/code", "index": 100, "group": "General" }]
+      }
+    ]
+  }
+]

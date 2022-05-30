@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/Linotype - AvenirNextLTPro-UltLt.otf') format('opentype');
+  font-weight: 100;
+  font-display: swap;
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/Linotype - AvenirNextLTPro-Thin.otf') format('opentype');
+  font-weight: 200;
+  font-display: swap;
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/Linotype - AvenirNextLTPro-Light.otf') format('opentype');
+  font-weight: 300;
+  font-display: swap;
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/Linotype - AvenirNextLTPro-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/Linotype - AvenirNextLTPro-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/Linotype - AvenirNextLTPro-Demi.otf') format('opentype');
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/Linotype - AvenirNextLTPro-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/Linotype - AvenirNextLTPro-Heavy.otf') format('opentype');
+  font-weight: 800;
+  font-display: swap;
+  unicode-range: U+000-5FF;
+}
+
+.bn-onboard-modal-select-wallets ::before {
+  content: '';
+}
+
+.bn-onboard-custom {
+  z-index: 1000;
+}
+
+.bn-onboard-icon-button,
+.bn-onboard-dark-mode-link {
+  border-radius: 9px !important;
+}
+.bn-onboard-modal-content-header-icon {
+  display: none !important;
+}
+
+.bn-onboard-modal-content-header-heading {
+  margin: 0 !important;
+}
+.bn-onboard-select-info-container span {
+  color: #fff !important;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.bn-branding {
+  display: none !important;
+}
+.bn-onboard-select-info-container {
+  display: none !important;
+}
