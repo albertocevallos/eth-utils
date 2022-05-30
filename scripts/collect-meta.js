@@ -118,13 +118,6 @@ const deepTranslate = (metadata, locales) => {
         const data = await getMetadata(childDirs, dir)
         const sorted = data.sort((a, b) => weights[a.name] - weights[b.name])
         const translatedData = deepTranslate(sorted, currentLocale)
-
-        console.log(currentLocale)
-        console.log(dir)
-        console.log(childDirs)
-        console.log(data)
-        console.log(sorted)
-
         return {
           name,
           content: translatedData,
