@@ -108,6 +108,7 @@ const deepTranslate = (metadata, locales) => {
       if (name === 'docs') return false
       return fs.statSync(fullPath).isDirectory()
     })
+    console.log('herte', locales)
 
     const sortdMetaData = await Promise.all(
       locales.map(async (name) => {
@@ -118,12 +119,19 @@ const deepTranslate = (metadata, locales) => {
         const sorted = data.sort((a, b) => weights[a.name] - weights[b.name])
         const translatedData = deepTranslate(sorted, currentLocale)
 
+        console.log(currentLocale)
+        console.log(dir)
+        console.log(childDirs)
+        console.log(data)
+        console.log(sorted)
+
         return {
           name,
           content: translatedData,
         }
       })
     )
+    console.log(sortdMetaData)
 
     await Promise.all(
       sortdMetaData.map(async (data) => {
