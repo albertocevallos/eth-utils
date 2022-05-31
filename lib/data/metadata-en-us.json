@@ -1,1 +1,4 @@
-[{"name":"Converter","url":"/en-us/converter","index":100,"group":"Math"}]
+[
+  { "name": "Converter", "url": "/en-us/converter.tsx", "index": 100, "group": "Math" },
+  { "name": "Hex", "url": "/en-us/hex.tsx", "index": 100, "group": "Math" }
+]

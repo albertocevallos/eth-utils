@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useCurrentState } from '@geist-ui/core'
 
 const DEFAULT_LOCALE = 'en-us'
-const DEFAULT_TAB = ''
+const DEFAULT_TAB = 'en-us/converter'
 
 export type LocaleTypes = {
   locale: string

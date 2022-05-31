@@ -41,7 +41,7 @@ const groupWeights = {
 const getMetadata = async (files, parentPath) => {
   return Promise.all(
     files
-      .filter((name) => name.endsWith('.mdx') || !name.includes('.'))
+      .filter((name) => name.endsWith('.tsx') || !name.includes('.'))
       .map(async (file) => {
         const filePath = path.join(parentPath, file)
         const isDirectory = fs.statSync(filePath).isDirectory()
@@ -118,13 +118,20 @@ const deepTranslate = (metadata, locales) => {
         const data = await getMetadata(childDirs, dir)
         const sorted = data.sort((a, b) => weights[a.name] - weights[b.name])
         const translatedData = deepTranslate(sorted, currentLocale)
+
+        console.log(currentLocale)
+        console.log(dir)
+        console.log(childDirs)
+        console.log(data)
+        console.log(sorted)
+
         return {
           name,
           content: translatedData,
         }
       })
     )
-    console.log(sortdMetaData)
+    // console.log(sortdMetaData)
 
     await Promise.all(
       sortdMetaData.map(async (data) => {

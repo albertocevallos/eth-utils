@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react'
+import React, { useMemo, useCallback, useState, useEffect } from 'react'
 import { GeistUIThemes, Page, Tabs } from '@geist-ui/core'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
@@ -26,6 +26,7 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => {
   const { tabbar: currentUrlTabValue, locale } = useLocale()
   const allSides = useMemo(() => Metadata[locale], [locale])
+  const [expanded, setExpanded] = useState<boolean>(false)
 
   const router = useRouter()
 
@@ -34,7 +35,7 @@ export const Layout = ({ children }: LayoutProps) => {
       const shouldRedirectDefaultPage = currentUrlTabValue !== tab
       if (!shouldRedirectDefaultPage) return
       const defaultPath = `/${locale}/${tab}`
-      router.push(defaultPath)
+      router.push(defaultPath.toLowerCase())
     },
     [currentUrlTabValue, locale]
   )
@@ -53,12 +54,7 @@ export const Layout = ({ children }: LayoutProps) => {
             onChange={handleTabChange}
           >
             {allSides.map((tab, index) => (
-              <Tabs.Item
-                font="14px"
-                label={tab.localeName || tab.name}
-                value={tab.name}
-                key={`${tab.localeName || tab.name}-${index}`}
-              />
+              <Tabs.Item font="14px" label={tab.name} value={tab.name.toLowerCase()} key={`${tab.name}-${index}`} />
             ))}
           </Tabs>
           <>{children}</>

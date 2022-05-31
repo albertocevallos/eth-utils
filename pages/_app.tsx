@@ -6,6 +6,7 @@ import 'styling/styles.css'
 import { Layout } from 'components/base/Layout'
 
 import { ThemeProvider } from 'styled-components'
+import { MDXProvider } from '@mdx-js/react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
