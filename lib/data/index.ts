@@ -1,6 +1,10 @@
 import enUS from './metadata-en-us.json'
-import type { Sides } from 'lib/components/layout/sidebar/side-item'
-
+export type Sides = {
+  name: string
+  url?: string
+  localeName?: string
+  children?: Sides | Array<Sides>
+}
 export interface MultipleLocaleMetaInformation {
   [key: string]: Sides[]
 }
