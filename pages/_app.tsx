@@ -10,7 +10,7 @@ import { PrefersContext, themes, ThemeType } from 'lib/use-prefers'
 
 export default function MyApp(props: any) {
   const { Component, pageProps } = props
-  const [themeType, setThemeType] = useState<ThemeType>('dark')
+  const [themeType, setThemeType] = useState<ThemeType>('light')
   useEffect(() => {
     document.documentElement.removeAttribute('style')
     document.body.removeAttribute('style')
