@@ -22,47 +22,23 @@ export const Menu = () => {
     [currentUrlTabValue, locale]
   )
   return (
-    <>
-      <Tabs
-        value={currentUrlTabValue}
-        leftSpace={0}
-        activeClassName="current"
-        align="center"
-        hideDivider
-        hideBorder
-        onChange={handleTabChange}
-      >
+    <div className="TabGroup">
+      <Tabs value={currentUrlTabValue} leftSpace={0} activeClassName="current" align="left" onChange={handleTabChange}>
         {allSides.map((tab, index) => (
-          <Tabs.Item font="14px" label={tab.name} value={tab.name.toLowerCase()} key={`${tab.name}-${index}`} />
+          <Tabs.Item font="16px" label={tab.name} value={tab.name.toLowerCase()} key={`${tab.name}-${index}`} />
         ))}
       </Tabs>
       <style jsx>{`
-        .tabs {
-          flex: 1 1;
-          padding: 0 ${theme.layout.gap};
-        }
-        .tabs :global(.content) {
-          display: none;
-        }
-        @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
-          .tabs {
-            display: none;
-          }
-        }
-        .controls {
-          flex: 1 1;
+        .TabGroup {
           display: flex;
           align-items: center;
-          justify-content: flex-end;
-        }
-        .controls :global(.menu-toggle) {
-          display: flex;
-          align-items: center;
-          min-width: 40px;
-          height: 40px;
-          padding: 0;
+          justify-content: space-between;
+          max-width: 1000px;
+          height: 100%;
+          margin: 0 auto;
+          user-select: none;
         }
       `}</style>
-    </>
+    </div>
   )
 }

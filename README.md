@@ -2,7 +2,7 @@
 
 Common, accessible utilities for ethereum developers working on frontend, smart contracts and security.
 
-### Support
+## Support
 
 - [x] Unit converter (eg. wei, gwei, eth)
 - [x] Hexadecimal to decimal converter (eg. 0x123 -> 291)
@@ -10,7 +10,7 @@ Common, accessible utilities for ethereum developers working on frontend, smart 
 - [ ] ABI encoder
 - [ ] UTF8 to ASCII
 
-### Quick Start
+## Quick Start
 
 ```bash
 # to install dependencies

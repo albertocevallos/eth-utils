@@ -68,12 +68,12 @@ export const Header = () => {
           right: 0;
           padding-right: ${isLocked ? 'var(--geist-page-scrollbar-width)' : 0};
           height: var(--geist-page-nav-height);
-          //width: 100%;
+          width: 100%;
           backdrop-filter: saturate(180%) blur(5px);
           background-color: ${addColorAlpha(theme.palette.background, 0.8)};
-          box-shadow: ${theme.type === 'dark' ? '0 0 0 1px #333' : '0 0 15px 0 rgba(0, 0, 0, 0.1)'};
+          // box-shadow: ${theme.type === 'dark' ? '0 0 0 1px #333' : '0 0 15px 0 rgba(0, 0, 0, 0.1)'};
           z-index: 999;
-          padding: 1em 0em;
+          box-shadow: inset 0 -1px ${theme.palette.border};
         }
         nav .content {
           display: flex;
@@ -83,7 +83,7 @@ export const Header = () => {
           height: 100%;
           margin: 0 auto;
           user-select: none;
-          padding: 0 ${theme.layout.gap};
+          padding: 1em ${theme.layout.gap};
         }
         .logo {
           flex: 1 1;
