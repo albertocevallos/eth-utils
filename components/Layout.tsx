@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Page } from '@geist-ui/core'
+import { Page, Text } from '@geist-ui/core'
 
 import { Header } from './Header'
+import { Footer } from './Footer'
 
 const Wrapper = styled.div`
   ${() => {
@@ -26,10 +27,8 @@ export const Layout = ({ children }: LayoutProps) => {
         <Header />
         <Page>
           <div style={{ maxWidth: '1000px', margin: '0 auto' }}>{children}</div>
-          <Page.Footer>
-            <h2>Footer</h2>
-          </Page.Footer>
         </Page>
+        <Footer />
       </Wrapper>
     </div>
   )

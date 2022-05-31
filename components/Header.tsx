@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import NextLink from 'next/link'
 import { Image, useTheme, Button } from '@geist-ui/core'
-import useLocale from 'lib/use-locale'
 import { Menu } from './Menu'
 import { addColorAlpha } from '../utils/color'
 import * as Icons from 'react-feather'
 import { usePrefers } from 'lib/use-prefers'
 
 export const Header = () => {
-  const { tabbar: currentUrlTabValue } = useLocale()
   const [isLocked, setIsLocked] = useState<boolean>(false)
   const theme = useTheme()
   const prefers = usePrefers()
@@ -84,7 +82,6 @@ export const Header = () => {
           width: 100%;
           backdrop-filter: saturate(180%) blur(5px);
           background-color: ${addColorAlpha(theme.palette.background, 0.8)};
-          // box-shadow: ${theme.type === 'dark' ? '0 0 0 1px #333' : '0 0 15px 0 rgba(0, 0, 0, 0.1)'};
           z-index: 999;
           box-shadow: inset 0 -1px ${theme.palette.border};
         }
@@ -124,11 +121,7 @@ export const Header = () => {
         .tabs :global(.content) {
           display: none;
         }
-        @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
-          .tabs {
-            display: none;
-          }
-        }
+
         .controls {
           flex: 1 1;
           display: flex;

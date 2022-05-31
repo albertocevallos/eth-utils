@@ -13,7 +13,6 @@ export const Menu = () => {
 
   const handleTabChange = useCallback(
     (tab: string) => {
-      console.log(tab)
       const shouldRedirectDefaultPage = currentUrlTabValue !== tab
       if (!shouldRedirectDefaultPage) return
       const defaultPath = `/${tab}`
@@ -26,7 +25,7 @@ export const Menu = () => {
     <div className="TabGroup">
       <Tabs value={currentUrlTabValue} leftSpace={0} activeClassName="current" align="left" onChange={handleTabChange}>
         {MENU.map((tab, index) => {
-          return <Tabs.Item font="16px" label={tab} value={tab.toLowerCase()} key={`${tab}-${index}`} />
+          return <Tabs.Item font="16px" label={tab} value={tab} key={`${tab}-${index}`} />
         })}
       </Tabs>
       <style jsx>{`
