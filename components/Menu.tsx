@@ -3,30 +3,31 @@ import { Tabs, useTheme } from '@geist-ui/core'
 import { useRouter } from 'next/router'
 
 import useLocale from 'lib/use-locale'
-import Metadata from 'lib/data'
+
+import { MENU } from 'lib/menu/menu'
 
 export const Menu = () => {
-  const { tabbar: currentUrlTabValue, locale } = useLocale()
-  const allSides = useMemo(() => Metadata[locale], [locale])
-  const [expanded, setExpanded] = useState<boolean>(false)
+  const { tabbar: currentUrlTabValue } = useLocale()
   const router = useRouter()
   const theme = useTheme()
 
   const handleTabChange = useCallback(
     (tab: string) => {
+      console.log(tab)
       const shouldRedirectDefaultPage = currentUrlTabValue !== tab
       if (!shouldRedirectDefaultPage) return
-      const defaultPath = `/${locale}/${tab}`
+      const defaultPath = `/${tab}`
       router.push(defaultPath.toLowerCase())
     },
-    [currentUrlTabValue, locale]
+    [currentUrlTabValue]
   )
+
   return (
     <div className="TabGroup">
       <Tabs value={currentUrlTabValue} leftSpace={0} activeClassName="current" align="left" onChange={handleTabChange}>
-        {allSides.map((tab, index) => (
-          <Tabs.Item font="16px" label={tab.name} value={tab.name.toLowerCase()} key={`${tab.name}-${index}`} />
-        ))}
+        {MENU.map((tab, index) => {
+          return <Tabs.Item font="16px" label={tab} value={tab.toLowerCase()} key={`${tab}-${index}`} />
+        })}
       </Tabs>
       <style jsx>{`
         .TabGroup {

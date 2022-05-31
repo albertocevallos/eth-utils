@@ -11,12 +11,7 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/en-us/converter',
-        permanent: true,
-      },
-      {
-        source: '/en-us',
-        destination: '/en-us/converter',
+        destination: '/converter',
         permanent: true,
       },
     ]

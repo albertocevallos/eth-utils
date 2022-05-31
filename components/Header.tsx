@@ -8,7 +8,7 @@ import * as Icons from 'react-feather'
 import { usePrefers } from 'lib/use-prefers'
 
 export const Header = () => {
-  const { tabbar: currentUrlTabValue, locale } = useLocale()
+  const { tabbar: currentUrlTabValue } = useLocale()
   const [isLocked, setIsLocked] = useState<boolean>(false)
   const theme = useTheme()
   const prefers = usePrefers()
@@ -39,7 +39,7 @@ export const Header = () => {
         <nav className="menu">
           <div className="content">
             <div className="logo">
-              <NextLink href={`/${locale}`}>
+              <NextLink href={`/converter`}>
                 <a aria-label="Go Home">
                   <Image
                     src="https://avatars.githubusercontent.com/u/27132021?s=400&u=1ee43c92f5cdfa31dec52fb8af6320e0e1b168e0&v=4"

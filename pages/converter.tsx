@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, Spacer, Input } from '@geist-ui/core'
+import { Text, Spacer, Input, Page } from '@geist-ui/core'
 import { toBaseUnitBN, toTokenUnitsBN } from 'utils/bignumber'
 
 export const meta = {
@@ -18,7 +18,9 @@ export const Converter = () => {
   return (
     <React.Fragment>
       <Spacer h={6} />
-      <Text h2>Converter</Text>
+      <Page.Header>
+        <h2>Converter</h2>
+      </Page.Header>
       <Text p>Simple unit converter for Ether units.</Text>
       <Spacer h={2} />
       <div className="group">
@@ -26,8 +28,8 @@ export const Converter = () => {
           label={'Wei'}
           placeholder="Wei"
           htmlType="number"
-          value={toTokenUnitsBN(value, 1).toFixed()}
-          onChange={(e) => handleValueChange(e, 1)}
+          value={toTokenUnitsBN(value, 0).toFixed()}
+          onChange={(e) => handleValueChange(e, 0)}
           width={30}
         />
         <Spacer h={1} />

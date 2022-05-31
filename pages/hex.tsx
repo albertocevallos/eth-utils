@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Spacer } from '@geist-ui/core'
+import { Text, Spacer, Page } from '@geist-ui/core'
 
 export const meta = {
   title: 'Hex',
@@ -10,7 +10,9 @@ export const Hex = () => {
   return (
     <React.Fragment>
       <Spacer h={6} />
-      <Text h2>Hexadecimal</Text>
+      <Page.Header>
+        <h2>Hexadecimal</h2>
+      </Page.Header>
       <Text p>Simple hexadecimal to decimal converter.</Text>
       <Spacer h={2} />
     </React.Fragment>
