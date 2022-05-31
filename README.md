@@ -1,6 +1,6 @@
 # eth utils
 
-Common, accessible utilities for ethereum developers working on frontend, smart contracts and security.
+Common, visual utilities for ethereum devs working on frontend, smart contracts and security.
 
 ## Support
 
