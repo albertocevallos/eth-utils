@@ -1,4 +1,5 @@
 import React from 'react'
+import { Text } from '@geist-ui/core'
 
 export const meta = {
   title: 'Converter',
@@ -8,7 +9,8 @@ export const meta = {
 export const Converter = () => {
   return (
     <React.Fragment>
-      <div>Converter</div>
+      <Text h2>Converter</Text>
+      <Text p>Simple unit converter for Ether units.</Text>
     </React.Fragment>
   )
 }

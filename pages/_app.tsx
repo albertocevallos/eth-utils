@@ -3,34 +3,11 @@ import React, { useState } from 'react'
 import { GeistProvider, CssBaseline } from '@geist-ui/core'
 import 'styling/styles.css'
 
-import { Layout } from 'components/base/Layout'
+import { Layout } from 'components/Layout'
 
-import { ThemeProvider } from 'styled-components'
-import { MDXProvider } from '@mdx-js/react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-
-// const customGeistLightTheme = Themes.createFromLight({
-//   type: 'customTheme',
-//   font: {
-//     sans: '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-//   },
-//   palette: {
-//     success: '#000',
-//     successLight: '#0070F3',
-//   },
-// })
-
-/*
-const customGeistDarkTheme = Themes.createFromDark({
-  type: 'customTheme',
-  font: {
-    sans:
-      '"Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-  },
-})
-*/
 
 export default function MyApp(props: any) {
   const { Component, pageProps } = props
@@ -54,7 +31,6 @@ export default function MyApp(props: any) {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <GeistProvider themeType={themeType}>
-        {/* <ThemeProvider theme={customGeistLightTheme}> */}
         <CssBaseline />
         <React.Fragment>
           <Layout>
@@ -75,7 +51,6 @@ export default function MyApp(props: any) {
             </motion.div>
           </Layout>
         </React.Fragment>
-        {/* </ThemeProvider> */}
       </GeistProvider>
     </React.Fragment>
   )
