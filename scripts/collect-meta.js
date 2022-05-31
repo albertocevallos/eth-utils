@@ -72,14 +72,14 @@ const getMetadata = async (files, parentPath) => {
 
           return { name: file, children: sorted }
         }
-        const content = await fs.readFile(filePath, 'utf-8')
-        const meta = await extractMetadata(content)
+        // const content = await fs.readFile(filePath, 'utf-8')
+        // const meta = await extractMetadata(content)
         const url = filePath.replace(pagePrefix, '').replace('.mdx', '')
+        console.log(file)
         return {
-          name: meta.title || file,
+          name: file.substring(0, file.length - 4),
           url,
-          index: meta.index || 100,
-          group: meta.group || null,
+          index: 100,
         }
       })
   )
@@ -119,19 +119,12 @@ const deepTranslate = (metadata, locales) => {
         const sorted = data.sort((a, b) => weights[a.name] - weights[b.name])
         const translatedData = deepTranslate(sorted, currentLocale)
 
-        console.log(currentLocale)
-        console.log(dir)
-        console.log(childDirs)
-        console.log(data)
-        console.log(sorted)
-
         return {
           name,
           content: translatedData,
         }
       })
     )
-    // console.log(sortdMetaData)
 
     await Promise.all(
       sortdMetaData.map(async (data) => {
