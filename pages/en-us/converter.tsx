@@ -28,7 +28,7 @@ export const Converter = () => {
           htmlType="number"
           value={toTokenUnitsBN(value, 1).toFixed()}
           onChange={(e) => handleValueChange(e, 1)}
-          width={20}
+          width={30}
         />
         <Spacer h={1} />
         <Input
@@ -37,7 +37,7 @@ export const Converter = () => {
           htmlType="number"
           value={toTokenUnitsBN(value, 9).toFixed()}
           onChange={(e) => handleValueChange(e, 9)}
-          width={20}
+          width={30}
         />
         <Spacer h={1} />
         <Input
@@ -46,7 +46,7 @@ export const Converter = () => {
           htmlType="number"
           value={toTokenUnitsBN(value, 18).toFixed()}
           onChange={(e) => handleValueChange(e, 18)}
-          width={20}
+          width={30}
         />
       </div>
 
