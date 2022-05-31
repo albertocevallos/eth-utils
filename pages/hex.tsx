@@ -10,8 +10,8 @@ export const Hex = () => {
       </Page.Header>
       <Text p>Simple hexadecimal to decimal converter.</Text>
       <Spacer h={1} />
-      <Note type="warning" width={30}>
-        This utility is currently under construction.
+      <Note type="warning" width={22}>
+        This util is currently under construction.
       </Note>
     </React.Fragment>
   )

@@ -47,7 +47,7 @@ export const Header = () => {
                     draggable={false}
                     title="Logo"
                   />
-                  Eth Utils
+                  Ethereum Utils
                 </a>
               </NextLink>
             </div>
