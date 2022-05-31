@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import NextLink from 'next/link'
-import { Image, useTheme } from '@geist-ui/core'
+import { Image, useTheme, Button } from '@geist-ui/core'
 import useLocale from 'lib/use-locale'
 import { Menu } from './Menu'
 import { addColorAlpha } from '../utils/color'
+import * as Icons from 'react-feather'
+import { usePrefers } from 'lib/use-prefers'
 
 export const Header = () => {
   const { tabbar: currentUrlTabValue, locale } = useLocale()
   const [isLocked, setIsLocked] = useState<boolean>(false)
   const theme = useTheme()
+  const prefers = usePrefers()
 
   useEffect(() => {
     const handler = () => {
@@ -46,11 +49,21 @@ export const Header = () => {
                     draggable={false}
                     title="Logo"
                   />
-                  Geist
+                  Eth Utils
                 </a>
               </NextLink>
             </div>
-            <div className="controls">controls</div>
+            <div className="controls">
+              <Button
+                aria-label="Toggle Dark mode"
+                className="theme-button"
+                auto
+                type="abort"
+                onClick={() => prefers.switchTheme(theme.type === 'dark' ? 'light' : 'dark')}
+              >
+                {theme.type === 'dark' ? <Icons.Sun size={16} /> : <Icons.Moon size={16} />}
+              </Button>
+            </div>
           </div>
           <div className="tabs">
             <Menu />

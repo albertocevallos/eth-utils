@@ -1,20 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 import { GeistProvider, CssBaseline } from '@geist-ui/core'
 import 'styling/styles.css'
-
 import { Layout } from 'components/Layout'
-
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import { PrefersContext, themes, ThemeType } from 'lib/use-prefers'
 
 export default function MyApp(props: any) {
   const { Component, pageProps } = props
-  const [themeType, setThemeType] = useState('light')
-  const switchThemes = () => {
-    setThemeType((last) => (last === 'dark' ? 'light' : 'dark'))
-  }
+  const [themeType, setThemeType] = useState<ThemeType>('dark')
+  useEffect(() => {
+    document.documentElement.removeAttribute('style')
+    document.body.removeAttribute('style')
+
+    const theme = window.localStorage.getItem('theme') as ThemeType
+    if (themes.includes(theme)) setThemeType(theme)
+  }, [])
+
+  const switchTheme = useCallback((theme: ThemeType) => {
+    setThemeType(theme)
+    if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('theme', theme)
+  }, [])
   const router = useRouter()
 
   return (
@@ -32,25 +40,27 @@ export default function MyApp(props: any) {
       </Head>
       <GeistProvider themeType={themeType}>
         <CssBaseline />
-        <React.Fragment>
-          <Layout>
-            <motion.div
-              key={router.route}
-              initial="pageInitial"
-              animate="pageAnimate"
-              variants={{
-                pageInitial: {
-                  opacity: 0,
-                },
-                pageAnimate: {
-                  opacity: 1,
-                },
-              }}
-            >
-              <Component {...pageProps} />
-            </motion.div>
-          </Layout>
-        </React.Fragment>
+        <PrefersContext.Provider value={{ themeType, switchTheme }}>
+          <React.Fragment>
+            <Layout>
+              <motion.div
+                key={router.route}
+                initial="pageInitial"
+                animate="pageAnimate"
+                variants={{
+                  pageInitial: {
+                    opacity: 0,
+                  },
+                  pageAnimate: {
+                    opacity: 1,
+                  },
+                }}
+              >
+                <Component {...pageProps} />
+              </motion.div>
+            </Layout>
+          </React.Fragment>
+        </PrefersContext.Provider>
       </GeistProvider>
     </React.Fragment>
   )

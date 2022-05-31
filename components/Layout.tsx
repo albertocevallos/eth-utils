@@ -26,7 +26,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <Header />
 
         <Page>
-          <div style={{ maxWidth: '960px', margin: '0 auto' }}>{children}</div>
+          <div style={{ maxWidth: '1000px', margin: '0 auto' }}>{children}</div>
         </Page>
       </Wrapper>
     </div>
