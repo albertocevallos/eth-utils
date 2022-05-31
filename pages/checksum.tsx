@@ -34,7 +34,7 @@ export const Checksum = () => {
       setValue(checksum)
     } catch (e) {
       console.log(e)
-      handleToast('error', 'Ethers: bad address checksum.')
+      handleToast('error', 'This is likely not an Ethereum address.')
       return
     }
   }
