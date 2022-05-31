@@ -1,5 +1,5 @@
 import React, { useMemo, useCallback, useState, useEffect } from 'react'
-import { Tabs } from '@geist-ui/core'
+import { Tabs, useTheme } from '@geist-ui/core'
 import { useRouter } from 'next/router'
 
 import useLocale from 'lib/use-locale'
@@ -9,8 +9,8 @@ export const Menu = () => {
   const { tabbar: currentUrlTabValue, locale } = useLocale()
   const allSides = useMemo(() => Metadata[locale], [locale])
   const [expanded, setExpanded] = useState<boolean>(false)
-
   const router = useRouter()
+  const theme = useTheme()
 
   const handleTabChange = useCallback(
     (tab: string) => {
@@ -36,6 +36,33 @@ export const Menu = () => {
           <Tabs.Item font="14px" label={tab.name} value={tab.name.toLowerCase()} key={`${tab.name}-${index}`} />
         ))}
       </Tabs>
+      <style jsx>{`
+        .tabs {
+          flex: 1 1;
+          padding: 0 ${theme.layout.gap};
+        }
+        .tabs :global(.content) {
+          display: none;
+        }
+        @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+          .tabs {
+            display: none;
+          }
+        }
+        .controls {
+          flex: 1 1;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+        .controls :global(.menu-toggle) {
+          display: flex;
+          align-items: center;
+          min-width: 40px;
+          height: 40px;
+          padding: 0;
+        }
+      `}</style>
     </>
   )
 }
