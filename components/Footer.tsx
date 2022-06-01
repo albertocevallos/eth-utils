@@ -8,9 +8,9 @@ export const Footer = () => {
     <Page.Footer>
       <div className="FooterWrapper" style={{ maxWidth: '1000px', margin: '0 auto' }}>
         <Text p>
-          Built by{' '}
-          <Link target="_blank" href="https://twitter.com/albertocevalls" block>
-            Alberto Cevallos
+          Contribute on{' '}
+          <Link target="_blank" href="https://github.com/albertocevallos/ethutils" block>
+            Github
           </Link>
           .
         </Text>
