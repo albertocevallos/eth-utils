@@ -38,7 +38,7 @@ export const Header = () => {
           <div className="content">
             <div className="logo">
               <NextLink href={`/converter`}>
-                <a aria-label="Go Home">🧰 Ethereum Utils</a>
+                <a aria-label="Go Home">🔧 Ethereum Utils</a>
               </NextLink>
             </div>
             <div className="controls">
