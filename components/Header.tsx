@@ -38,17 +38,7 @@ export const Header = () => {
           <div className="content">
             <div className="logo">
               <NextLink href={`/converter`}>
-                <a aria-label="Go Home">
-                  <Image
-                    src="https://avatars.githubusercontent.com/u/27132021?s=400&u=1ee43c92f5cdfa31dec52fb8af6320e0e1b168e0&v=4"
-                    width="20px"
-                    height="20px"
-                    mr={0.5}
-                    draggable={false}
-                    title="Logo"
-                  />
-                  Ethereum Utils
-                </a>
+                <a aria-label="Go Home">🧰 Ethereum Utils</a>
               </NextLink>
             </div>
             <div className="controls">
