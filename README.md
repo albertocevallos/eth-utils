@@ -27,4 +27,4 @@ See our [contributing guidelines](./CONTRIBUTING.md).
 
 ## Support
 
-Create an issue [issue](https://github.com/geist-org/geist-ui/issues/new/choose) to track todos, bugs, feature requests and more.
+Create an [issue](https://github.com/geist-org/geist-ui/issues/new/choose) to track todos, bugs, feature requests and more.
