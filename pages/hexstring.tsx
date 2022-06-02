@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, Input, Spacer, Page, Button, useToasts, Card } from '@geist-ui/core'
 import { Repeat } from '@geist-ui/icons'
 import { BigNumber as BN } from 'ethers'
@@ -8,9 +8,14 @@ export const Hex = () => {
   const [base, setBase] = useState<string>('hexadecimal')
   const [value, setValue] = useState<string>('')
   const [result, setResult] = useState<string>('')
-
   const { setToast } = useToasts()
   const isHex = base == 'hexadecimal'
+
+  useEffect(() => {
+    if (value == '') {
+      reset()
+    }
+  }, [value])
 
   const handleToast = (type: any, msg: string) =>
     setToast({
@@ -30,8 +35,7 @@ export const Hex = () => {
       handleToast('success', `Input has been converted to ${isHex ? 'decimal' : 'hexadecimal'}.`)
     } catch (e) {
       console.log(e)
-      handleToast('error', 'Input not a hexstring of base 16.')
-      return
+      handleToast('error', `Input not a ${isHex ? 'hexstring of base 16' : 'decimal number'}.`)
     }
   }
 
