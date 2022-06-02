@@ -5,14 +5,13 @@ import { toBaseUnitBN, toTokenUnitsBN } from 'utils/bignumber'
 export const Converter = () => {
   const [value, setValue] = useState<string>('')
   const handleValueChange = (e: any, base: number) => {
-    console.log(e.target.value)
     setValue(toBaseUnitBN(e.target.value, base).toFixed())
   }
   return (
     <React.Fragment>
       <Spacer h={6} />
       <Page.Header>
-        <h2>Converter</h2>
+        <h2>Unit Converter</h2>
       </Page.Header>
       <Text p>Simple unit converter for Ether units.</Text>
       <Spacer h={2} />

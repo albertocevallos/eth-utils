@@ -24,13 +24,11 @@ export const Checksum = () => {
         handleToast('error', 'Address needs to be 42 characters and start with 0x.')
         return
       }
-      // check if already checksum
-      const isChecksum = ethers.utils.isAddress(value)
-      if (isChecksum === true) {
-        handleToast('success', 'Already checksummed.')
-      }
+
       // return checksum
       const checksum = ethers.utils.getAddress(value)
+      handleToast('success', 'Address has been checksummed.')
+
       setValue(checksum)
     } catch (e) {
       console.log(e)

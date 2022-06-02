@@ -2,4 +2,4 @@
  * No-locale menu (english only)
  */
 
-export const MENU: string[] = ['converter', 'checksum', 'hex']
+export const MENU: string[] = ['unit', 'checksum', 'hexstring']

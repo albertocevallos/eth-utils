@@ -37,7 +37,7 @@ export const Header = () => {
         <nav className="menu">
           <div className="content">
             <div className="logo">
-              <NextLink href={`/converter`}>
+              <NextLink href={`/unit`}>
                 <a aria-label="Go Home">🔧 Ethereum Utils</a>
               </NextLink>
             </div>

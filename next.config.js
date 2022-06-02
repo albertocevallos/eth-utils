@@ -11,7 +11,7 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/converter',
+        destination: '/unit',
         permanent: true,
       },
     ]
