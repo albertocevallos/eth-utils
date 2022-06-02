@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, Spacer, Input, Page, useToasts, Button } from '@geist-ui/core'
+import { Text, Spacer, Input, Page, useToasts, Button, Card } from '@geist-ui/core'
 import { ethers } from 'ethers'
 
 export const Checksum = () => {
@@ -43,26 +43,31 @@ export const Checksum = () => {
       <Page.Header>
         <h2>Checksum</h2>
       </Page.Header>
-      <Text p>Convert Ethereum address to a checksummed address.</Text>
+      <Text p>Convert an Ethereum address to a checksummed address.</Text>
       <Spacer h={2} />
-      <div className="group">
-        <Input
-          placeholder="0x123..."
-          htmlType="text"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          width={25}
-          scale={4 / 3}
-          required={true}
-          clearable
-          marginRight={1}
-        />
-        <Button onClick={handleClick}>Submit</Button>
-      </div>
+      <Card style={{ width: 'fit-content' }}>
+        <div className="group">
+          <Input
+            placeholder="0x123..."
+            htmlType="text"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            width={25}
+            scale={4 / 3}
+            required={true}
+            clearable
+          />
+          <Spacer h={1} />
+          <Button onClick={handleClick} width={1.5} shadow type="secondary">
+            Submit
+          </Button>
+        </div>
+      </Card>
+
       <style jsx>{`
         .group {
           display: flex;
-          align-items: center;
+          flex-direction: column;
         }
       `}</style>
     </React.Fragment>

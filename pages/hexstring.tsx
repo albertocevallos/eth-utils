@@ -1,39 +1,90 @@
 import React, { useState } from 'react'
-import { Text, Input, Spacer, Page, Select } from '@geist-ui/core'
+import { Text, Input, Spacer, Page, Button, useToasts, Card } from '@geist-ui/core'
+import { Repeat } from '@geist-ui/icons'
 import { BigNumber as BN } from 'ethers'
+import { capitalizeFirstLetter } from 'utils/string'
 
 export const Hex = () => {
+  const [base, setBase] = useState<string>('hexadecimal')
   const [value, setValue] = useState<string>('')
+  const [result, setResult] = useState<string>('')
 
-  const handleValueChange = (e: any) => {
-    const val = e.target.value
-    console.log(val)
-    console.log(BN.from(val))
+  const { setToast } = useToasts()
+  const isHex = base == 'hexadecimal'
+
+  const handleToast = (type: any, msg: string) =>
+    setToast({
+      text: msg,
+      type,
+    })
+
+  const reset = () => {
+    setValue('')
+    setResult('')
+  }
+
+  const handleConvert = () => {
+    try {
+      const num = BN.from(value)
+      isHex ? setResult(num.toString()) : setResult(num.toHexString())
+      handleToast('success', `Input has been converted to ${isHex ? 'decimal' : 'hexadecimal'}.`)
+    } catch (e) {
+      console.log(e)
+      handleToast('error', 'Input not a hexstring of base 16.')
+      return
+    }
   }
 
   return (
     <React.Fragment>
       <Spacer h={6} />
       <Page.Header>
-        <h2>Hexadecimal</h2>
+        <h2>Hexstring Converter</h2>
       </Page.Header>
-      <Text p>Simple hexadecimal to decimal converter.</Text>
+      <Text p>Hexadecimal to decimal converter.</Text>
       <Spacer h={2} />
-      <div className="group">
-        <div className="select">
-          <Select placeholder="Choose one" marginRight={3} onChange={() => {}}>
-            <Select.Option value="Hexadecimal">Hexadecimal</Select.Option>
-            <Select.Option value="Decimal">Decimal</Select.Option>
-          </Select>
-          <Select placeholder="Choose one" onChange={() => {}}>
-            <Select.Option value="Hexadecimal">Hexadecimal</Select.Option>
-            <Select.Option value="Decimal">Decimal</Select.Option>
-          </Select>
+      <Card style={{ width: 'fit-content' }}>
+        <div className="group">
+          <div className="select">
+            <Input readOnly htmlType="text" width={8} scale={4 / 3} value={capitalizeFirstLetter(base)} />
+            <Button
+              iconRight={<Repeat />}
+              auto
+              scale={2 / 3}
+              px={0.6}
+              marginLeft={1.5}
+              marginRight={1.5}
+              onClick={() => {
+                base === 'hexadecimal' ? setBase('decimal') : setBase('hexadecimal')
+                reset()
+              }}
+            />
+            <Input
+              readOnly
+              htmlType="text"
+              width={8}
+              scale={4 / 3}
+              value={capitalizeFirstLetter(isHex ? 'decimal' : 'hexadecimal')}
+            />
+          </div>
+          <Spacer h={1} />
+          <Input
+            placeholder={`Enter ${base} number`}
+            htmlType="text"
+            width={20}
+            scale={4 / 3}
+            onChange={(e) => setValue(e.target.value)}
+            value={value}
+            clearable
+          />
+          <Spacer h={1} />
         </div>
-        <Spacer h={1} />
-        <Input placeholder="0x123..." htmlType="text" width={22} scale={4 / 3} />
-      </div>
-      <Input readOnly initialValue="readOnly" />
+        <Button onClick={handleConvert} width={2.22} shadow type="secondary">
+          Submit
+        </Button>
+        <Spacer h={3} />
+        <Input readOnly htmlType="text" width={20} scale={4 / 3} value={result} />
+      </Card>
 
       <style jsx>{`
         .group {
@@ -42,10 +93,10 @@ export const Hex = () => {
         }
         .select {
           display: flex;
+          align-items: center;
         }
       `}</style>
     </React.Fragment>
   )
 }
-
 export default Hex
