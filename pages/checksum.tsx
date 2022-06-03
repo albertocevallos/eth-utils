@@ -36,6 +36,7 @@ export const Checksum = () => {
       return
     }
   }
+  console.log(process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID)
 
   return (
     <React.Fragment>

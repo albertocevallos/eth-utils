@@ -14,6 +14,8 @@ import Script from 'next/script'
 export default function MyApp(props: any) {
   const { Component, pageProps } = props
   const [themeType, setThemeType] = useState<ThemeType>('light')
+  const router = useRouter()
+
   useEffect(() => {
     document.documentElement.removeAttribute('style')
     document.body.removeAttribute('style')
@@ -26,7 +28,13 @@ export default function MyApp(props: any) {
     setThemeType(theme)
     if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('theme', theme)
   }, [])
-  const router = useRouter()
+
+  useEffect(() => {
+    router.events.on('routeChangeComplete', pageview)
+    return () => {
+      router.events.off('routeChangeComplete', pageview)
+    }
+  }, [router.events])
 
   return (
     <React.Fragment>
