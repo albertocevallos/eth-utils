@@ -50,7 +50,7 @@ export const Hex = () => {
       <div style={{ width: 'fit-content' }}>
         <div className="group">
           <div className="select">
-            <Input readOnly htmlType="text" width={8} scale={4 / 3} value={capitalizeFirstLetter(base)} />
+            <Input readOnly htmlType="text" width={10} scale={4 / 3} value={capitalizeFirstLetter(base)} label="From" />
             <Button
               iconRight={<Repeat />}
               auto
@@ -66,16 +66,17 @@ export const Hex = () => {
             <Input
               readOnly
               htmlType="text"
-              width={8}
+              width={10}
               scale={4 / 3}
               value={capitalizeFirstLetter(isHex ? 'decimal' : 'hexadecimal')}
+              label="To"
             />
           </div>
           <Spacer h={1} />
           <Input
             placeholder={`Enter ${base} number`}
             htmlType="text"
-            width={20}
+            width={24}
             scale={4 / 3}
             onChange={(e) => setValue(e.target.value)}
             value={value}
@@ -83,12 +84,11 @@ export const Hex = () => {
           />
           <Spacer h={1} />
         </div>
-        <Button onClick={handleConvert} width={2.22} shadow type="secondary">
+        <Button onClick={handleConvert} width={2.67} shadow type="secondary">
           Submit
         </Button>
         <Spacer h={3} />
-        <Text p>Result:</Text>
-        <Input readOnly htmlType="text" width={20} scale={4 / 3} value={result} />
+        <Input readOnly htmlType="text" width={24} scale={4 / 3} value={result} placeholder="Result" />
       </div>
 
       <style jsx>{`
