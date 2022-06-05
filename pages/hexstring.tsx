@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, Input, Spacer, Page, Button, useToasts, Card } from '@geist-ui/core'
+import { Text, Input, Spacer, Page, Button, useToasts } from '@geist-ui/core'
 import { Repeat } from '@geist-ui/icons'
 import { BigNumber as BN } from 'ethers'
 import { capitalizeFirstLetter } from 'utils/string'
@@ -47,7 +47,7 @@ export const Hex = () => {
       </Page.Header>
       <Text p>Hexadecimal to decimal converter.</Text>
       <Spacer h={2} />
-      <Card style={{ width: 'fit-content' }}>
+      <div style={{ width: 'fit-content' }}>
         <div className="group">
           <div className="select">
             <Input readOnly htmlType="text" width={8} scale={4 / 3} value={capitalizeFirstLetter(base)} />
@@ -87,8 +87,9 @@ export const Hex = () => {
           Submit
         </Button>
         <Spacer h={3} />
+        <Text p>Result:</Text>
         <Input readOnly htmlType="text" width={20} scale={4 / 3} value={result} />
-      </Card>
+      </div>
 
       <style jsx>{`
         .group {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, Spacer, Input, Page, useToasts, Button, Card } from '@geist-ui/core'
+import { Text, Spacer, Input, Page, useToasts, Button } from '@geist-ui/core'
 import { ethers } from 'ethers'
 
 export const Checksum = () => {
@@ -45,7 +45,7 @@ export const Checksum = () => {
       </Page.Header>
       <Text p>Convert an Ethereum address to a checksummed address.</Text>
       <Spacer h={2} />
-      <Card style={{ width: 'fit-content' }}>
+      <div style={{ width: 'fit-content' }}>
         <div className="group">
           <Input
             placeholder="0x123..."
@@ -62,7 +62,7 @@ export const Checksum = () => {
             Submit
           </Button>
         </div>
-      </Card>
+      </div>
 
       <style jsx>{`
         .group {
