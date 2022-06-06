@@ -47,7 +47,7 @@ export default function MyApp(props: any) {
         <title>Ethereum Utils</title>
         <meta name="title" content="Ethereum Utils" />
         <meta name="description" content="Common utilities for ethereum developers." />
-        <meta name="keywords" content="solidity, vyper, dao, defi, crypto, yield, ethereum, development" />
+        <meta name="keywords" content="ethereum, utilities, checksum, converter, abi, solidity, vyper" />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
