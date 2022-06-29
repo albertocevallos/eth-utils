@@ -11,6 +11,7 @@ export const Hex = () => {
   const handleConvert = (event: string) => {
     if (!event) {
       setValue('')
+      return
     }
     try {
       const num = BN.from(event)
