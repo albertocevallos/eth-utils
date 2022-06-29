@@ -7,7 +7,7 @@ export const Keccak256 = () => {
 
   const handleConvert = (event: string) => {
     if (!event) {
-      setValue(' ')
+      setValue('')
       return
     }
     try {
