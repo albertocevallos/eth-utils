@@ -5,8 +5,9 @@ Visual, easily accesible utility functions for working with ethereum related cod
 ## Support
 
 - [x] Unit converter (eg. wei, gwei, eth)
-- [x] Hexadecimal to decimal converter (eg. 0x123 -> 291)
+- [x] Hexadecimal to decimal converter
 - [x] Checksum
+- [x] Keccak-256 converter
 - [ ] ABI encoder
 - [ ] UTF8 to ASCII
 

@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import { Text, Input, Spacer, Page, Button, useToasts, Description, Snippet } from '@geist-ui/core'
-import { Repeat } from '@geist-ui/icons'
-import { BigNumber as BN } from 'ethers'
+import React, { useState } from 'react'
+import { Text, Input, Spacer, Page, Description, Snippet } from '@geist-ui/core'
+import { BigNumber as BN, ethers } from 'ethers'
 
-export const Hex = () => {
-  const [base, setBase] = useState<string>('hexadecimal')
+export const Keccak256 = () => {
   const [value, setValue] = useState<string>('')
-  const isHex = base == 'hexadecimal'
 
   const handleConvert = (event: string) => {
     if (!event) {
       setValue('')
     }
     try {
-      const num = BN.from(event)
-      isHex ? setValue(num.toString()) : setValue(num.toHexString())
+      const hash = ethers.utils.id(event)
+      setValue(hash)
     } catch (e) {
       console.log(e)
     }
@@ -24,17 +21,17 @@ export const Hex = () => {
     <React.Fragment>
       <Spacer h={6} />
       <Page.Header>
-        <h2>Hexstring Converter</h2>
+        <h2>Keccak-256 Converter</h2>
       </Page.Header>
-      <Text p>Hexadecimal to decimal converter.</Text>
+      <Text p>Keccak-256 online hash function.</Text>
       <div style={{ width: 'fit-content' }}>
         <Spacer h={2} />
         <Description
-          title={`Input ${isHex ? 'hexadecimal' : 'decimal'}`}
+          title={`Input string/number`}
           content={
             <p>
               <Input
-                placeholder={isHex ? '0x1' : '123'}
+                placeholder={'hello world'}
                 htmlType="text"
                 width={24}
                 scale={4 / 3}
@@ -47,24 +44,13 @@ export const Hex = () => {
         />
         <Spacer h={2} />
         <Description
-          title={`Output ${isHex ? 'decimal' : 'hexadecimal'}`}
+          title={`Output hash`}
           content={
             <p>
               <Snippet symbol="" text={value} width={24} scale={4 / 3} height={2.71} />{' '}
             </p>
           }
         />
-        <Spacer h={2} />
-        <Button
-          iconRight={<Repeat />}
-          auto
-          onClick={() => {
-            base === 'hexadecimal' ? setBase('decimal') : setBase('hexadecimal')
-            setValue('')
-          }}
-        >
-          Switch
-        </Button>
       </div>
 
       <style jsx>{`
@@ -80,4 +66,4 @@ export const Hex = () => {
     </React.Fragment>
   )
 }
-export default Hex
+export default Keccak256
