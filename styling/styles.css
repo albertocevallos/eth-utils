@@ -61,35 +61,3 @@
   font-display: swap;
   unicode-range: U+000-5FF;
 }
-
-.bn-onboard-modal-select-wallets ::before {
-  content: '';
-}
-
-.bn-onboard-custom {
-  z-index: 1000;
-}
-
-.bn-onboard-icon-button,
-.bn-onboard-dark-mode-link {
-  border-radius: 9px !important;
-}
-.bn-onboard-modal-content-header-icon {
-  display: none !important;
-}
-
-.bn-onboard-modal-content-header-heading {
-  margin: 0 !important;
-}
-.bn-onboard-select-info-container span {
-  color: #fff !important;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.bn-branding {
-  display: none !important;
-}
-.bn-onboard-select-info-container {
-  display: none !important;
-}

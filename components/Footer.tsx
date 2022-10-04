@@ -13,7 +13,7 @@ export const Footer = () => {
             Alberto Cevallos
           </Link>
           <br /> Contribute on{' '}
-          <Link target="_blank" href="https://github.com/albertocevallos/ethutils" block>
+          <Link target="_blank" href="https://github.com/albertocevallos/eth-utils" block>
             Github
           </Link>
         </Text>
