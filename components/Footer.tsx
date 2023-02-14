@@ -9,7 +9,7 @@ export const Footer = () => {
       <div className="FooterWrapper" style={{ maxWidth: '1000px', margin: '0 auto' }}>
         <Text p>
           Built by{' '}
-          <Link target="_blank" href="https://twitter.com/albertocevalls" block>
+          <Link target="_blank" href="https://twitter.com/albertobuilder" block>
             Alberto Cevallos
           </Link>
           <br /> Contribute on{' '}
